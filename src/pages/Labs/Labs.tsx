@@ -3,6 +3,7 @@ import { TotalSupply } from 'components/TokensComponents/TotalSupply';
 import { Burn } from 'pages/home/Burn';
 import { Mint } from 'pages/home/MintButton';
 import { LocalBalanceToken } from 'pages/home/MyBalanceToken';
+import { VarasBalance } from 'pages/home/VarasBalance';
 
 import { GasData } from '../ViewTransactions/GasLimit';
 
@@ -21,6 +22,7 @@ function Labs (){
             <img className="w-96 h-96" src="/LogoGaia.svg" alt="" />
             <h2 className="text-black text-3xl">Gaia Token</h2>
             <h2 className="text-black">Saldo:</h2>
+            <VarasBalance/>
             <LocalBalanceToken/>
             <Mint/>
             <Burn/>
