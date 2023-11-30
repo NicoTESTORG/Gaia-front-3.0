@@ -1,9 +1,10 @@
-
 import { ReadState } from 'components/TokensComponents/ReadState';
 import { TotalSupply } from 'components/TokensComponents/TotalSupply';
 import { Burn } from 'pages/home/Burn';
 import { Mint } from 'pages/home/MintButton';
 import { LocalBalanceToken } from 'pages/home/MyBalanceToken';
+
+import { GasData } from '../ViewTransactions/GasLimit';
 
 
 
@@ -25,6 +26,7 @@ function Labs (){
             <Burn/>
             <TotalSupply/>
             <ReadState/>
+            <GasData/>
         </div>
     </div>
   );

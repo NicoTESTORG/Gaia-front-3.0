@@ -46,6 +46,15 @@ const meta =
 
    const addresLocal = account!.address
 
+   const gasLimit = 375076928
+   const percentage = 0.90
+   const gasTotal = gasLimit * (1+percentage)
+   const gasUsage = Math.round(gasTotal)
+
+
+   console.log(gasUsage);
+   
+
   const message: any = {
     destination: programIDFT, // programId
     payload: {
@@ -55,7 +64,7 @@ const meta =
         quantity,
       ],
     },
-    gasLimit: 899819245,
+    gasLimit: gasUsage,
     value: 0,
   };
 
