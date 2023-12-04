@@ -12,7 +12,7 @@ import { SuperUser } from './pages/superUser/SuperUser';
 import { Labs } from './pages/Labs/Labs';
 import PanelUsuarioFinal from './pages/panelUsuarioFinal/PanelUsuarioFinal';
 import 'App.css';
-import {AuthForm} from 'components/LoginAct/LoginAct';
+import {AuthForm} from 'pages/LoginAct/LoginAct';
 import { PublicProfile } from 'components/UserNew/UserNew';
 import { initializeApp } from 'firebase/app';
 import { config } from "./components/config/config"
@@ -34,6 +34,8 @@ function Component() {
     }
   }, [isAppReady, navigate]);
 
+  
+
   return (
     <div className='font-sans bg-slate-200 text-white'>
       {window.location.pathname !== '/' && <Header isAccountVisible={isAccountReady} />}
@@ -42,9 +44,7 @@ function Component() {
       <main>{isAppReady ? <Routing /> : <ApiLoader />}</main>
       <Routes>
         <Route path="/panelUsuarioFinal" element={<PanelUsuarioFinal />} />
-        <Route path="/home" element={<AuthRoute> <GraficoEnergia /> </AuthRoute>} />
         <Route path="/superUser" element={<SuperUser />} />
-        <Route path="/" element={<AuthForm />} />
         <Route path='/lab' element={<Labs />} />
         <Route path='/settings' element={<PublicProfile/>} />
         <Route path='/loginPrueba' element={<AuthForm/>}/>
