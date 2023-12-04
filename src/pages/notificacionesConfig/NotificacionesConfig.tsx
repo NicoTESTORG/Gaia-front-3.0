@@ -1,4 +1,3 @@
-
 export function NotificacionesConfig() {
   return (
     <div>
