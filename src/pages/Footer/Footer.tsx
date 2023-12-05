@@ -37,7 +37,7 @@ function Footer() {
             rel="noreferrer"
           >
             <img
-              src="/LOGOGAIASOLO.PNG"
+              src="/LOGOGAIASOLO.png"
               alt=""
               className=" w-16 h-12 sm:w-48 sm:h-48 sm:ml-16  mb-12"
             />

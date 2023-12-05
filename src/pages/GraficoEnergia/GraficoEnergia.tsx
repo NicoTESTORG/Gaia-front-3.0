@@ -330,7 +330,7 @@ const meta = '00010001000000000001030000000107000000000000000108000000a90b340008
 
   return (
     <div className="w-full">
-      <div className="bg-gradient-to-tr from-[#181745] from-10% via-[#181745] via-30% to-[#216e93] to-90% text-white md:pl-24 2xl:pl-32 md:pr-10 md:pb-0 ">
+      <div className=" text-white md:pl-24 2xl:pl-32 md:pr-10 md:pb-0 ">
         <div className="flex flex-col md:flex-row  p-2 justify-center graficos">
           <div className="bg-[#1d335b] ms:w-228 ] md:w-[349px] h-[170px]  rounded overflow-hidden shadow-lg flex flex-col m-4">
             <div className=" flex justify-center items-center h-full">

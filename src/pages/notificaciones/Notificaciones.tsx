@@ -2,7 +2,7 @@
 function Notificaciones (){ 
 
   return (
-    <div className="bg-slate-200 h-full">
+    <div className=" h-full">
       
       <div className="flex items-center justify-center sm:ml-[10vh] md:ml-[-1]">
         <div className="flex text-[#696771] bg-[#DDDDDD] w-[800px] h-20 border border-solid border-[#000 ] items-center justify-center mt-40">

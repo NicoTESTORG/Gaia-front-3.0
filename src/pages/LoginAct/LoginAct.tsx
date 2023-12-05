@@ -35,7 +35,7 @@ function AuthForm (props: ILoginPageProps): JSX.Element {
         <h1 className="relative text-5xl">Blockchain Impulsa Tu Energía Verde</h1>
       </div>
 
-      <div className="bg-white/70 w-full md:max-w-md lg:max-w-full md:mx-auto md:w-1/2 xl:w-1/3 h-screen px-6 lg:px-16 xl:px-12 flex items-center justify-center">
+      <div className="bg-white w-full md:max-w-md lg:max-w-full md:mx-auto md:w-1/2 xl:w-1/3 h-screen px-6 lg:px-16 xl:px-12 flex items-center justify-center">
         <div className="w-full h-100">
             <div className="flex flex-col gap-2 ml-16 sm:ml-32 lg:ml-44 item-center justify-center">
                 <img className="w-32 h-32" src="/LOGOGAIASOLO.png" alt="" />
