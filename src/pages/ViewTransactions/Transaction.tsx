@@ -39,7 +39,7 @@ function Transaction () {
   quantity * valorCrypto;
 
   const [valoresCrypto, setValoresCrypto] = useState<CryptoValues>({
-    gaia: 5.05,
+    gaia: 0.126,
     vara: 50.50,
   });
   
