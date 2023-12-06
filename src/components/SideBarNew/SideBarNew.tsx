@@ -29,7 +29,7 @@ function SideBarNew(props: IHomePageProps): JSX.Element {
       <div
         className={` ${
           open ? "w-72" : "w-20 "
-        } bg-[#181745] text-white h-screen p-5  pt-8 relative duration-300`}
+        } bg-[#181745] text-white h-full sm:h-screen p-5  pt-8 relative duration-300`}
       >
         <button
           type="button"
@@ -62,13 +62,13 @@ function SideBarNew(props: IHomePageProps): JSX.Element {
 
           {open && (
             <Link to="/">
-            <button type="button" onClick={signOutWithoutAuth}>
+            <button type="button" onClick={signOutWithoutAuth} className="text-slate-400 hover:text-white">
               Cerrar sesión
             </button>
             </Link>
           )}
         </div>
-        <ul className="pt-6">
+        <ul className={`${!open && "hidden"} pt-6 sm:block`}>
           {Menus.map((Menu) => (
             <Link to={Menu.to}>
               <li
@@ -85,8 +85,8 @@ function SideBarNew(props: IHomePageProps): JSX.Element {
               </li>
             </Link>
           ))}
-         <Account/>
         </ul>
+        <Account/>
       </div>
     </div>
   );
