@@ -14,10 +14,10 @@ function SideBarNew(props: IHomePageProps): JSX.Element {
 
   const [open, setOpen] = useState(false);
   const Menus = [
-    { id: 3, title: "Graficos ", src: "Calendar", to: "/Home" },
+    { id: 3, title: "Graficos ", src: "Chart", to: "/Home" },
     { id: 4, title: "Transactions", src: "User", to: "/transactions" },
     { id: 5, title: "Dispositivos", src: "Search", to: "/panelUsuarioFinal" },
-    { id: 6, title: "Red", src: "Chart", to: "/Red" },
+    { id: 6, title: "Red", src: "Chart_fill", to: "/Red" },
     { id: 7, title: "Info ", src: "Folder", gap: true, to: "/superUser" },
     { id: 8, title: "Setting", src: "Setting", to: "/settings" },
     { title: "Notificaciones", src: "Chat", to: "/notificaciones" },
@@ -25,6 +25,7 @@ function SideBarNew(props: IHomePageProps): JSX.Element {
 
 
   return (
+    
     <div className="bg-white text-white">
       <div
         className={` ${
