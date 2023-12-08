@@ -337,7 +337,7 @@ const programIdKey = process.env.REACT_APP_PROGRAM_ID
               </button> */}
             </div>
             <div className="flex justify-end items-end h-20">
-            <img src="./LOGOGAIASOLO.PNG"  className="w-16 h-16 mr-8 mb-2"  alt="" />
+            <img src="./LOGOGAIASOLO.png"  className="w-16 h-16 mr-8 mb-2"  alt="" />
               <span className=" mb-4 mr-4 font-bold text-white">
                 Total Excedente en Tokens: 
               </span>
