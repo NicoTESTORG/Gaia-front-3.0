@@ -2,6 +2,8 @@
 import { useAccount, useApi, useAlert } from "@gear-js/react-hooks";
 import { web3FromSource } from "@polkadot/extension-dapp";
 import { decodeAddress, ProgramMetadata, GearKeyring } from "@gear-js/api";
+import { useState } from "react";
+import { AlertsTransaction } from "components/AlertModal/AlertsTransaction";
 
 interface ModalTypes {
   accountTo: string,
@@ -18,6 +20,12 @@ interface Transaccion {
 
 
 function Transfer({accountTo, quantity,state}:ModalTypes) {
+
+  const [alertTransaction, setAlertTransaction] = useState(false)
+
+  const onClose = ()=>{
+    setAlertTransaction(false)
+  }
 
   const pushData = () => {
     // No cambies esta lógica, ya que se está utilizando localStorage directamente
@@ -81,6 +89,7 @@ function Transfer({accountTo, quantity,state}:ModalTypes) {
   
       await transferExtrinsic.signAndSend(keyring,(event:any)=>{
           console.log(event.toHuman());
+          setAlertTransaction(true)
           
       })
     } else {
@@ -89,6 +98,7 @@ function Transfer({accountTo, quantity,state}:ModalTypes) {
   };
 
   return (
+    <div>
     <button
     onClick={signer}
     type="submit"
@@ -96,6 +106,10 @@ function Transfer({accountTo, quantity,state}:ModalTypes) {
   >
     Enviar
   </button>
+  {alertTransaction && (
+    <AlertsTransaction onClose={onClose}/>
+  )}
+</div>
   )
 }
 

@@ -351,14 +351,6 @@ console.log(addresTransaction);
                 {totalExcedente.toFixed(3)} Kw
               </span>
              
-
-              {/* <button
-                type="button"
-                className="text-[#338de7] text-[18px] underline text-left"
-                onClick={() => {setModalMint(true); handleCaptureExcedente()}}
-              >
-                Convertir a Token
-              </button> */}
             </div>
             <div className="flex justify-end items-end h-20">
             <img src="./LOGOGAIASOLO.png"  className="w-16 h-16 mr-8 mb-2"  alt="" />
