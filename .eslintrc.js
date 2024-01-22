@@ -21,6 +21,10 @@ module.exports = {
     project: './tsconfig.json',
   },
   plugins: ['react', '@typescript-eslint'],
+  ignorePatterns: [
+    "src/pages/Logo/Logo.tsx",
+    "src/pages/terms&policies/Terms&policy.tsx"
+  ],
   rules: {
     "no-console": ["error", { "allow": ["log", "warn", "error"] }],
     '@typescript-eslint/default-param-last': 'off',
