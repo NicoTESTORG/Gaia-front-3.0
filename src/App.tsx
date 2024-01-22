@@ -20,6 +20,7 @@ import { config } from "./components/config/config"
 import {Footer} from 'pages/Footer/Footer';
 import Logo from "./pages/Logo/Logo";
 import TermsAndPolicy from "./pages/terms&policies/Terms&policy";
+import GraficoEnergia from './pages/GraficoEnergia/GraficoEnergia';
 
 initializeApp(config.firebaseConfig);
  
@@ -47,6 +48,7 @@ function Component() {
       {(window.location.pathname === '/assets/logo') && <Logo />}
         {(window.location.pathname === '/serviceTerms') && <TermsAndPolicy />}
         {(window.location.pathname === '/dataPrivacy') && <TermsAndPolicy />}
+        {(window.location.pathname === '/sma/redirect') && <GraficoEnergia/>}
       
       <main>{isAppReady ? <Routing /> : <ApiLoader />}</main>
       <Routes>
