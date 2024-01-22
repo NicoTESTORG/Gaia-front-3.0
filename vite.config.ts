@@ -2,7 +2,6 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
 import path from 'path';
 import nodePolyfills from 'vite-plugin-node-stdlib-browser';
-import eslint from 'vite-plugin-eslint';
 import svgr from 'vite-plugin-svgr';
 import dotenv from 'dotenv';
 import EnvironmentPlugin from 'vite-plugin-environment';
@@ -25,7 +24,7 @@ export default defineConfig({
     port: 3000,
     host: true,
   },
-  plugins: [svgr(), react(), nodePolyfills(), eslint(), EnvironmentPlugin('all')],
+  plugins: [svgr(), react(), nodePolyfills(), EnvironmentPlugin('all')],
   assetsInclude: ['**/*.wasm?inline', '**/*.txt?inline'],
   build: { outDir: 'build' },
 });
