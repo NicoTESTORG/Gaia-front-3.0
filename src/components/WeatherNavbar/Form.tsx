@@ -45,7 +45,7 @@ function Form({ newLocation }: FormProps) {
     const fetchWeatherData = async (latitude: number, longitude: number) => {
       try {
         setIsLoading(true);
-        const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${process.env.REACT_APP_WEATHER_API_KEY}&lang=es`;
+        const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${import.meta.env.VITE_APP_WEATHER_API_KEY}&lang=es`;
         const response = await fetch(apiUrl);
         const data = await response.json();
         setWeatherLocation(data);

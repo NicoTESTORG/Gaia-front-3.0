@@ -1,4 +1,4 @@
-import { LocalBalanceToken } from "pages/home/MyBalanceToken"
+import { LocalBalanceToken } from "../../pages/home/MyBalanceToken"
 
 interface Props {
     image:string,

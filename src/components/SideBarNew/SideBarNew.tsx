@@ -2,8 +2,8 @@ import { CgMenu } from "react-icons/cg";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { getAuth, signOut } from "firebase/auth";
-import { Account } from "components/layout/header/account";
-import { AccountIcon } from "components/layout/header/account/AccountIcon";
+import { AccountButton } from "../layout/header/account-info/account-button";
+import { AccountInfo } from "../layout/header/account-info";
 
 /* eslint-disable */
 export interface IHomePageProps {}
@@ -118,9 +118,9 @@ function SideBarNew(props: IHomePageProps): JSX.Element {
             </Link>
           ))}
         </ul>
-        <div>{open && <Account />}</div>
+        <div>{open && <AccountInfo />}</div>
         <div className={` ${open ? "sm:block" : "hidden sm:block"}`}>
-          {!open && <AccountIcon />}
+          {!open && <AccountInfo />}
         </div>
 
       </div>

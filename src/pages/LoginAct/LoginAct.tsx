@@ -2,6 +2,7 @@ import { Link, useNavigate} from "react-router-dom";
 // import { signInWithGoogle } from "../../firebase";
 import { useState } from 'react';
 import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import '../../global.css'
 
 /* eslint-disable */
 export interface ILoginPageProps {}
