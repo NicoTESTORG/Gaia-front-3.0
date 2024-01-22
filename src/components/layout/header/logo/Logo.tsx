@@ -1,11 +1,12 @@
-import { Link } from 'react-router-dom';
-import './logo.module.scss';
+// import { Link } from "react-router-dom";
+import './BalanceEffect.css';
+import './MetalicBackground.css';
 
 function Logo() {
   return (
-    <Link to="/">
-      <h1>LOGO</h1>
-    </Link>
+    
+      <h1></h1>
+   
   );
 }
 

@@ -68,47 +68,42 @@ const meta =
 
   const signer = async () => {
     pushData()
-    if(accounts){
+    const localaccount = account?.address;
+    const isVisibleAccount = accounts.some(
+      (visibleAccount) => visibleAccount.address === localaccount
+    );
 
-      const localaccount = account?.address;
-      const isVisibleAccount = accounts.some(
-        (visibleAccount) => visibleAccount.address === localaccount
-        );
-        
-        if (isVisibleAccount && api) {
-          // Create a message extrinsic
-          const transferExtrinsic = await api.message.send(message, metadata);
-          
-          const injector = await web3FromSource(accounts[0].meta.source);
-          
-          transferExtrinsic
-          .signAndSend(
-            account?.address ?? alert.error("No account"),
-            { signer: injector.signer },
-            ({ status }: { status: any }) => {
-              if (status.isInBlock) {
-                
-                alert.success(status.asInBlock.toString());
-              } else {
-                alert.info("in procces")
-                
-                if (status.type === "Finalized") {
-                  alert.success(status.type);
-                }
+    if (isVisibleAccount) {
+      // Create a message extrinsic
+      const transferExtrinsic = await api.message.send(message, metadata);
+
+      const injector = await web3FromSource(accounts[0].meta.source);
+
+      transferExtrinsic
+        .signAndSend(
+          account?.address ?? alert.error("No account"),
+          { signer: injector.signer },
+          ({ status }) => {
+            if (status.isInBlock) {
+              
+              alert.success(status.asInBlock.toString());
+            } else {
+              alert.info("in procces")
+              
+              if (status.type === "Finalized") {
+                alert.success(status.type);
               }
             }
-            )
-            .catch((error: any) => {
-              alert.error(error)
-            });
-          } else {
-            alert.error("Account not available to sign");
           }
-        } else {
-          console.error("Account is undefined");
-        }
-        };
-        
+        )
+        .catch((error: any) => {
+          alert.error(error)
+        });
+    } else {
+      alert.error("Account not available to sign");
+    }
+  };
+
   return (
     <button
     onClick={signer}

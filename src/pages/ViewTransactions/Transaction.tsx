@@ -2,9 +2,9 @@ import { useState, useEffect } from "react";
 import { useAccount} from "@gear-js/react-hooks";
 import { useSelector } from 'react-redux';
 // Importaciones locales
-import {CryptoCard} from "../../components/CryptoCard/CryptoCard";
-import { CryptoCardVara } from "../../components/CryptoCard/CryptoCardVara";
-import {AlertModal} from "../../components/AlertModal/AlertModal";
+import {CryptoCard} from "components/CryptoCard/CryptoCard";
+import { CryptoCardVara } from "components/CryptoCard/CryptoCardVara";
+import {AlertModal} from "components/AlertModal/AlertModal";
 
 import { ModalSendToken } from "../ModalTransaction/ModalSendToken";
 import { ModalConvertTokens } from "../ModalTransaction/ModalConvertTokens";

@@ -1,4 +1,4 @@
-import { ApiLoader } from "../../components/loaders/api-loader/ApiLoader";
+import { ApiLoader } from "components/loaders/api-loader/ApiLoader";
 import { useState, useEffect } from "react";
 
 interface CardProps {

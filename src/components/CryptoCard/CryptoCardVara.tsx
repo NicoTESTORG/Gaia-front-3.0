@@ -1,4 +1,4 @@
-import { VarasBalance } from "../../pages/home/VarasBalance"
+import { VarasBalance } from "pages/home/VarasBalance"
 
 interface Props {
     image:string,

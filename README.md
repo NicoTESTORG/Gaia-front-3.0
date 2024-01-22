@@ -1,1 +1,6 @@
-## Vite-Template
+
+# Gear Template for Dapps 
+
+
+## Description
+

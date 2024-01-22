@@ -1,7 +1,9 @@
+
 import { useAccount, useApi, useAlert } from "@gear-js/react-hooks";
+import { web3FromSource } from "@polkadot/extension-dapp";
 import { decodeAddress, ProgramMetadata, GearKeyring } from "@gear-js/api";
 import { useState } from "react";
-import { AlertsTransaction } from "../../components/AlertModal/AlertsTransaction";
+import { AlertsTransaction } from "components/AlertModal/AlertsTransaction";
 
 interface ModalTypes {
   accountTo: string,
@@ -15,6 +17,7 @@ interface Transaccion {
   tipo: string;
   total: any;
 }
+
 
 function Transfer({accountTo, quantity,state}:ModalTypes) {
 
@@ -40,16 +43,21 @@ function Transfer({accountTo, quantity,state}:ModalTypes) {
   const { accounts, account } = useAccount();
   const { api } = useApi();
   // Add your programID
-  const programIdKey = process.env.VITE_APP_PROGRAM_ID
+  const programIdKey = process.env.REACT_APP_PROGRAM_ID
 
 
   // Add your metadata.txt
-  const meta = process.env.VITE_APP_META_DATA 
+   const meta = process.env.REACT_APP_META_DATA
 
 
    const metadata = ProgramMetadata.from(meta!);
 
    const addresLocal = account!.address
+
+   const gasLimit = 375076928
+   const percentage = 0.90
+   const gasTotal = gasLimit * (1+percentage)
+   const gasUsage = Math.round(gasTotal)
 
   const message: any = {
     destination: programIdKey, // programId
@@ -60,11 +68,14 @@ function Transfer({accountTo, quantity,state}:ModalTypes) {
         quantity,
       ],
     },
-    gasLimit: 999819245,
+    gasLimit: gasUsage,
     value: 0,
   };
 
-  async function signer(){
+
+
+  const signer = async () => {
+    pushData()
     const localaccount = account?.address;
     const isVisibleAccount = accounts.some(
       (visibleAccount) => visibleAccount.address === localaccount
@@ -73,54 +84,18 @@ function Transfer({accountTo, quantity,state}:ModalTypes) {
     if (isVisibleAccount) {
       // Create a message extrinsic
       const transferExtrinsic = await api.message.send(message, metadata);
-
-      const injector = await web3FromSource(accounts[0].meta.source);
-
-      transferExtrinsic
-        .signAndSend(
-          account?.address ?? alert.error("No account"),
-          { signer: injector.signer },
-          ({ status }: { status: any }) => {
-            if (status.isInBlock) {
-              alert.success(status.asInBlock.toString());
-            } else {
-                alert.info("In process")
-              if (status.type === "Finalized") {
-                alert.success(status.type);
-              }
-            }
-          }
-        )
-        .catch((error: any) => {
-          alert.error(error)
-        });
+      // const mnemonic = 'hub next valid globe toddler robust click demise silent pottery inside brass';
+      const keyring = await GearKeyring.fromSuri('//Alice');
+  
+      await transferExtrinsic.signAndSend(keyring,(event:any)=>{
+          console.log(event.toHuman());
+          setAlertTransaction(true)
+          
+      })
     } else {
       alert.error("Account not available to sign");
     }
-};
-
-  // const signer = async () => {
-  //   pushData()
-  //   const localaccount = account?.address;
-  //   const isVisibleAccount = accounts.some(
-  //     (visibleAccount) => visibleAccount.address === localaccount
-  //   );
-
-  //   if (isVisibleAccount) {
-  //     // Create a message extrinsic
-  //     const transferExtrinsic = await api.message.send(message, metadata);
-  //     // const mnemonic = 'hub next valid globe toddler robust click demise silent pottery inside brass';
-  //     const keyring = await GearKeyring.fromSuri('//Alice');
-  
-  //     await transferExtrinsic.signAndSend(keyring,(event:any)=>{
-  //         console.log(event.toHuman());
-  //         setAlertTransaction(true)
-          
-  //     })
-  //   } else {
-  //     alert.error("Account not available to sign");
-  //   }
-  // };
+  };
 
   return (
     <div>

@@ -28,14 +28,12 @@ function VarasBalance() {
   const metadata = ProgramMetadata.from(meta);
 
   const getBalance = () => {
-    if (api) {
     api.programState
       .read({ programId: programIDFT, payload: "" }, metadata)
-      .then((result: { toJSON: () => any; }) => {
+      .then((result) => {
         setFullState(result.toJSON());
       })
       .catch(({ message }: Error) => alert.error(message));
-    }
 
     Localbalances.some(([address, balances]: any) => {
       if (encodeAddress(address) === account?.address) {
