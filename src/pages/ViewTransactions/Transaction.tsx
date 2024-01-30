@@ -2,9 +2,9 @@ import { useState, useEffect } from "react";
 import { useAccount} from "@gear-js/react-hooks";
 import { useSelector } from 'react-redux';
 // Importaciones locales
-import {CryptoCard} from "components/CryptoCard/CryptoCard";
-import { CryptoCardVara } from "components/CryptoCard/CryptoCardVara";
-import {AlertModal} from "components/AlertModal/AlertModal";
+import {CryptoCard} from "../../components/CryptoCard/CryptoCard";
+import { CryptoCardVara } from "../../components/CryptoCard/CryptoCardVara";
+import {AlertModal} from "../../components/AlertModal/AlertModal";
 
 import { ModalSendToken } from "../ModalTransaction/ModalSendToken";
 import { ModalConvertTokens } from "../ModalTransaction/ModalConvertTokens";
@@ -52,7 +52,7 @@ function Transaction () {
   const [fundsState, setFundsState] = useState(false)
   const [alert, setAlert] = useState(false)
 
-  const { accounts, account } = useAccount();
+  const {account } = useAccount();
   const addresLocal = account?.address
 
   const onClose = () => {
@@ -69,9 +69,9 @@ function Transaction () {
       setAlert(true)    
     }
   };
-  const openCardConvert = () => {
-    setConvertTokenState(true);
-  };
+  // const openCardConvert = () => {
+  //   setConvertTokenState(true);
+  // };
   const openCardFunds = () => {
     setFundsState(true);
   };
